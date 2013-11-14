@@ -1,0 +1,10 @@
+{
+  "name": "sails-start",
+  "version": "0.0.1",
+  "dependencies": {
+  	"angular":"*",
+  	"angular-route":"*",
+  	"restangular":"*",
+  	"boostrap-ui":"https://github.com/angular-ui/bootstrap/archive/bootstrap3.zip",
+  }
+}
