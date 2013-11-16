@@ -4,7 +4,9 @@
   "dependencies": {
   	"angular":"*",
   	"angular-route":"*",
+  	"bootstrap":"*",
   	"restangular":"*",
+  	"underscore":"*",
   	"boostrap-ui":"https://github.com/angular-ui/bootstrap/archive/bootstrap3.zip"
   }
 }

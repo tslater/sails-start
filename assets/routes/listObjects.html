@@ -1,0 +1,21 @@
+<div class='container main-max'>
+	<h1>List Of Objects</h1>
+	
+	<a href='#/createNew' class="btn btn-primary">+ add new object</a>
+	<br/>
+	<br/>
+		<ul>
+			<li ng-repeat='object in objects'>
+				<div>
+					<b>Name:</b>
+					{{object.name}}
+				</div>
+				<div>
+					<b>Description:</b>
+					{{object.description}}
+				</div>
+				<button type="button" class="btn btn-default" ng-click="deleteObject(object)">x</button>
+
+			</li>
+		</ul>	
+</div>
