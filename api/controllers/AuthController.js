@@ -23,24 +23,34 @@ var passport = require('passport')
 module.exports = {
     
   login: passport.authenticate('local', { 
-				successRedirect: '/auth/loginSuccess',
+				successRedirect: '/auth/success',
 				failureRedirect: '/auth/unauthorized'
 	}),
+
   logout: function(req, res){
 	  req.logout();
-	  res.redirect('/');
+	  res.redirect('/login');
   },
 
+  success: function(req,res){
+    res.send("Successss!");
+  },
 
-  loginSuccess: function(req, res){
-    res.send({
-      "message":"login successful",
-      "error": false
-    });
+  isLoggedIn : function(req, res){
+    if(req.user){
+      user.isLoggedIn = true;
+      delete user.password;
+      res.send(user);
+    }else{
+      res.send({
+        isLoggedIn : false,
+        email : '',
+      });
+    }
   },
 
   unauthorized: function(req, res){
-  	res.send(401);
+  	res.send();
   },
   /**
    * Overrides for the settings in `config/controllers.js`

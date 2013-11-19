@@ -3,10 +3,12 @@
   "version": "0.0.1",
   "dependencies": {
   	"angular":"*",
-  	"angular-route":"*",
+    "angular-route":"*",
+  	"angular-animate":"*",
   	"bootstrap":"*",
   	"restangular":"*",
   	"underscore":"*",
-  	"boostrap-ui":"https://github.com/angular-ui/bootstrap/archive/bootstrap3.zip"
+  	"boostrap-ui":"https://github.com/angular-ui/bootstrap/archive/bootstrap3.zip",
+    " angular-http-auth" : "*"
   }
 }

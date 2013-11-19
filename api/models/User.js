@@ -9,10 +9,10 @@
 module.exports = {
 
   attributes: {
+    
+    email: 'string',
+    password: 'string'
   	
-  	/* e.g.
-  	nickname: 'string'
-  	*/
     
   }
 

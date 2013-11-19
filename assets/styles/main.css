@@ -1,3 +1,46 @@
 .main-max{
 	max-width:400px;
 }
+
+.mainView{
+    position: absolute;
+    width: 100%;
+}
+
+.mainView.ng-enter, 
+.mainView.ng-leave
+{ 
+    -webkit-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -moz-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -ms-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -o-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+} 
+ 
+.mainView.ng-enter {
+    left: 100%;
+}
+.mainView.ng-enter.ng-enter-active {
+    left: 0;
+}
+ 
+.mainView.ng-leave {
+    left: 0;
+}
+.mainView.ng-leave.ng-leave-active{
+    left: -100%;
+}
+
+.mainView.back.ng-enter {
+    left: -100%;
+}
+.mainView.back.ng-enter.ng-enter-active {
+    left: 0;
+}
+ 
+.mainView.back.ng-leave {
+    left: 0;
+}
+.mainView.back.ng-leave.ng-leave-active{
+    left: 100%;
+}

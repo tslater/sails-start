@@ -1,8 +1,12 @@
 
-var ObjectController = function($scope, $location, Restangular){
+var ObjectController = function($scope, $route, $location, Restangular){
+	$scope.backwardsClass = '';
+	$scope.route = $route;
+
 	$scope.test = "Welcome to Sails Start";
 	
 	var endpoint = Restangular.all('YourModelHere');
+
 
 	$scope.saveObject = function(){
 		endpoint.post($scope.newObject).then(function(response){

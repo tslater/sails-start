@@ -2,14 +2,6 @@ var passport = require('passport')
   , LocalStrategy = require('passport-local').Strategy;
 
 
-
-var adminUser={
-    	name: "tyler slater",
-    	username: 'tyler',
-    	password: 'red',
-    	id: 1
-    };
-
 passport.serializeUser(function(user, done) {
   done(null, user.id);
 });
@@ -20,9 +12,12 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
-passport.use(new LocalStrategy(
+passport.use(new LocalStrategy({
+    usernameField: 'email',
+    passwordField: 'password'
+  },
   function(email, password, done) {
-
+    console.log('checkingsss...');
     User.findOne({ "email": email }, function(err, user) {
         if(err || !user){
           console.log("No User!!");
@@ -41,6 +36,9 @@ passport.use(new LocalStrategy(
 
   }
 ));
+
+
+// TODO: sails.config.express  use?
 
 module.exports.express = {
     customMiddleware: function (app) {

@@ -1,30 +1,42 @@
 var UserController = function($scope, $location, $http, Restangular){
-	var loginUser = $scope.loginUser = {};
+
+	$scope.location = $location;
+	var user = $scope.user = {};
+
+
+	$http.get('auth/isLoggedIn')
+		.success(function(response){
+			$scope.user = response;
+		})
+		.error(function(){
+			alert("Something is wrong with our site. Please try again soon!");
+	});
+
 	$scope.login = function(){
-		var login = {
-			username : loginUser.username,
-			password : loginUser.password
-		};
-		$http.post('auth/login', login)
+		console.log(user);
+		$http.post('auth/login', $scope.user)
 			.success(function(response){
-				console.log(response);
+				$location.path('/');
 			}).error(function(response){
 				console.log(response);
 			});
 	};
 
+	$scope.logout = function(){}
+
 	$scope.register = function(registerUserInfo){
 		var user = Restangular.all('user');
 
-		var registerSuccess = function(){
-			
+		var registerSuccess = function(response){
+			alert('i did it!');
+			user = response;
 		};
 
 		var registerFail = function(response){
 			console.log("Error with status code", response.status);
 		};
 
-			user.post(registerUserInfo).then();
+		user.post(registerUserInfo).then(registerSuccess, registerFail);
 
 		
 
