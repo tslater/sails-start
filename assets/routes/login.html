@@ -1,18 +1,29 @@
 <div class="container main-max" >
+	<form name="objectForm">
+		<div class="input-group">
+		  <span class="input-group-addon">@</span>
+		  <input 
+		  	  name="email"
+			  type="email" 
+			  class="form-control" 
+			  ng-model="user.email" 
+			  placeholder="Email"
+		  	  required
+		  >
+		</div>
+		<span class="error" ng-show="objectForm.email.$error.email  ">Not a valid email!</span>
+		<br>
 
-	<div class="input-group">
-	  <span class="input-group-addon">@</span>
-	  <input type="text" class="form-control" 
-	  ng-model="user.email" 
-	  placeholder="Email">
-	</div>
-	<br>
-	<div class="input-group">
-	  <span class="input-group-addon">@</span>
-	  <input type="password" class="form-control" 
-	  ng-model="user.password" 
-	  placeholder="Password">
-	</div>
+		<br>
+		<div class="input-group">
+		  <span class="input-group-addon">@</span>
+		  <input type="password"
+		   class="form-control" 
+		  ng-model="user.password" 
+		  placeholder="Password"
+		  required>
+		</div>
+	</form>
 	<br>
 	<button ng-click="login()" class="btn btn-primary">Save</button>
 

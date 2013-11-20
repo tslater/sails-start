@@ -3,23 +3,22 @@ var app = angular.module('SailsStartApp', ['restangular','ngRoute', 'ngAnimate']
 			$routeProvider
 				.when('/', {
 					templateUrl: '/routes/listObjects.html',
-					controller: ObjectController,
+					controller: 'ObjectListController'
 				})
 				.when('/createNew', {
 					templateUrl: '/routes/createNew.html',
-					controller: ObjectController,
+					controller: 'ObjectSaveController'
 				})
 				.when('/login', {
 					templateUrl: '/routes/login.html',
-					controller: UserController,
 				})
 				.when('/about', {
 					templateUrl: '/routes/about.html',
-					controller: UserController,
+					forwardButton: 'goFor it',
+					backButton: 'goBack'
 				})
 				.when('/404', {
 					templateUrl: '/routes/404.html',
-					controller: UserController,
 				})
 				.otherwise({redirectTo:'/404'});
 	var interceptor = ['$location', '$q', function($location, $q) {
@@ -44,6 +43,5 @@ var app = angular.module('SailsStartApp', ['restangular','ngRoute', 'ngAnimate']
 	    }];
 
     $httpProvider.responseInterceptors.push(interceptor);
-
 
 	});

@@ -23,13 +23,13 @@ var passport = require('passport')
 module.exports = {
     
   login: passport.authenticate('local', { 
-				successRedirect: '/auth/success',
-				failureRedirect: '/auth/unauthorized'
+				successRedirect: '/auth/isLoggedIn',
+				failureRedirect: '/auth/isLoggedIn'
 	}),
 
   logout: function(req, res){
 	  req.logout();
-	  res.redirect('/login');
+	  res.redirect('/auth/isLoggedIn');
   },
 
   success: function(req,res){
@@ -38,18 +38,20 @@ module.exports = {
 
   isLoggedIn : function(req, res){
     if(req.user){
-      user.isLoggedIn = true;
-      delete user.password;
-      res.send(user);
+      req.user.isLoggedIn = true;
+      delete req.user.password;
+      res.send(req.user);
     }else{
-      res.send({
+      var user = {
         isLoggedIn : false,
-        email : '',
-      });
+        email : ''
+      };
+      res.send(user);
     }
   },
 
   unauthorized: function(req, res){
+    req.logout();
   	res.send();
   },
   /**
